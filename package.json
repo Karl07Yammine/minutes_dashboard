@@ -1,0 +1,24 @@
+{
+  "name": "minutes_dashboard",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karl07Yammine/minutes_dashboard/issues"
+  },
+  "homepage": "https://github.com/Karl07Yammine/minutes_dashboard#readme",
+  "description": "",
+  "dependencies": {
+    "appwrite": "^18.1.1",
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0"
+  }
+}
