@@ -1,0 +1,88 @@
+.left-bar{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+.content{
+   height: 90vh;
+   max-height: 90vh;
+   overflow-y: scroll;
+}
+
+body{
+   margin: 3%;
+   font-family: 'Courier New', Courier, monospace;
+}
+
+.barItem{
+   width: 95%;
+   margin-bottom: 5%;
+   border-radius: 10px;
+   padding: 3px;
+   display: flex;
+   align-items: center;
+   height: 5.5vh;
+}
+
+.barItem:hover{
+   cursor: pointer;
+}
+
+.selectedBarItem{
+   background-color: #e7edf4;
+}
+
+.title{
+   width: 100%;
+}
+
+.barText{
+   display: flex;
+   margin: 0;
+   margin-left: 4px;
+}
+
+
+
+
+#fab {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+   background-color: #007bff;
+   color: white;
+   font-size: 32px;
+   line-height: 56px;
+   text-align: center;
+   cursor: pointer;
+   z-index: 999;
+   transition: all 0.3s ease;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+ }
+ 
+ #expandCard {
+   position: fixed;
+   bottom: 90px;
+   right: 20px;
+   width: 0;
+   height: 0;
+   opacity: 0;
+   overflow: hidden;
+   background: white;
+   padding: 20px;
+   border-radius: 12px;
+   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+   transition: all 0.3s ease;
+   z-index: 998;
+ }
+ 
+ /* Expanded state */
+ #expandCard.active {
+   width: 400px;
+   height: auto;
+   opacity: 1;
+ }

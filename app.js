@@ -1,24 +1,24 @@
 const express = require('express');
-const path = require('path');
 require('dotenv').config();
-require 
+const checkAppwriteHealth = require('./src/services/health.js');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+
 
 const app = express();
 const port = 3000;
 
-// Serve static files from the 'Front End' directory
-const frontEndPath = path.join(__dirname, 'public');
-app.use(express.static(frontEndPath));
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
-// Define a route for the root
-app.get('/', (req, res) => {
-  const indexPath = path.join(frontEndPath, 'index.html');
-  res.sendFile(indexPath);
-});
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-
-
-
+const getRoutes = require('./src/routes/getRoutes.js');
+const postRoutes = require('./src/routes/postRoutes.js');
+app.use('/', getRoutes);
+app.use('/', postRoutes);
 
 
 // Start the server

@@ -1,20 +1,22 @@
-const sdk = require("node-appwrite");
+const { Client, Account, Users, Databases, Teams, Functions, Health, ID, Query } = require("node-appwrite");
 require('dotenv').config();
 
 
-const client = new sdk.Client();
+const client = new Client();
 
 client
-  .setEndpoint(process.env.APPWRITE_ENDPOINT)
-  .setProject(process.env.APPWRITE_PROJECT)
-  .setDevKey(process.env.APPWRITE_DEV_KEY);
+   .setEndpoint(process.env.APPWRITE_ENDPOINT)
+   .setProject(process.env.APPWRITE_PROJECT)
+   .setKey(process.env.APPWRITE_API_KEY);
 
 module.exports = {
-  client,
-  account: new sdk.Account(client),
-  users: new sdk.Users(client),
-  databases: new sdk.Databases(client),
-  teams: new sdk.Teams(client),
-  functions: new sdk.Functions(client),
-  health: new sdk.Health(client),
+   client,
+   account: new Account(client),
+   users: new Users(client),
+   databases: new Databases(client),
+   teams: new Teams(client),
+   functions: new Functions(client),
+   health: new Health(client),
+   ID,
+   Query
 };
