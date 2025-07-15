@@ -4,7 +4,7 @@ const SESSION_COOKIE = 'session';
 const SESSION_AGE = 1000 * 60 * 60;
 
 const createTailor = require('../services/createTailor')
-
+const deleteTailor = require('../services/deleteTailor')
 const path = require('path');
 const frontEndPath = path.join(__dirname, '..', '..', 'public');
  
@@ -30,6 +30,12 @@ const frontEndPath = path.join(__dirname, '..', '..', 'public');
     console.error(err);
     res.status(500).send('Something went wrong');
   }
+ })
+
+ router.post('/deleteTailor', async (req, res) => {
+   const { id } = req.body;
+   await deleteTailor(id);
+   res.redirect('/tailors');
  })
  
  

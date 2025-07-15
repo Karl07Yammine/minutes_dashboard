@@ -8,6 +8,7 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+app.use(express.json()); // ⬅️ Add this to parse JSON request bodies
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 

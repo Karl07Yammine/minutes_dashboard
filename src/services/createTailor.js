@@ -10,7 +10,7 @@ const createTailor = async (name, password, number) => {
       await databases.createDocument(
          process.env.DB_ID, // databaseId
          process.env.COLLECTION_TAILORS, // collectionId
-         ID.unique(), // documentId
+         id, // documentId
          {
             name,
             number,

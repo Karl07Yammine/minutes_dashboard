@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 
 
 
- const allowedPages = ['dashboard', 'tailors', 'users', 'bookings', 'map', 'revenue', 'receipts'];
+ const allowedPages = ['dashboard', 'tailors', 'users', 'bookings', 'map', 'revenue', 'receipts', 'services'];
  router.get('/:page', (req, res) => {
    const page = req.params.page;
  
