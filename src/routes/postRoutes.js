@@ -5,6 +5,8 @@ const SESSION_AGE = 1000 * 60 * 60;
 
 const createTailor = require('../services/createTailor')
 const deleteTailor = require('../services/deleteTailor')
+const createService = require('../services/createService')
+const deleteService = require('../services/deleteService')
 const path = require('path');
 const frontEndPath = path.join(__dirname, '..', '..', 'public');
  
@@ -38,8 +40,18 @@ const frontEndPath = path.join(__dirname, '..', '..', 'public');
    res.redirect('/tailors');
  })
  
+ router.post('/createService', async (req, res) => {
+   const { service_name, price } = req.body;
+   console.log(service_name, price);
+   await createService(service_name, price);
+   res.redirect('/services');
+ })
  
-
+ router.post('/deleteService', async (req, res) => {
+   const { id } = req.body;
+   await deleteService(id);
+   res.redirect('/services');
+ })
 
 
 

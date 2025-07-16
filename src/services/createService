@@ -1,0 +1,22 @@
+const { databases, ID } = require('./appwriteClient');
+require('dotenv').config();
+
+const createService = async (service_name, price) => {
+
+   try {
+      await databases.createDocument(
+         process.env.DB_ID, // databaseId
+         process.env.COLLECTION_SERVICES, // collectionId
+         ID.unique(), // documentId
+         {
+            service_name,
+            price: parseFloat(price),
+         }
+      );
+
+   } catch (err) {
+      console.error('❌ Error somewhere in the flow:', err);
+   }
+};
+
+    module.exports = createService;
