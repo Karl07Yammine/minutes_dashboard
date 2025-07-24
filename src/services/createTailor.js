@@ -1,4 +1,4 @@
-const { account, databases, users, ID } = require('./appwriteClient');
+const { account, databases, users, ID, teams } = require('./appwriteClient');
 require('dotenv').config();
 
 const createTailor = async (name, password, number) => {
@@ -17,6 +17,17 @@ const createTailor = async (name, password, number) => {
             userId: id
          }
       );
+      try {
+         await teams.createMembership(
+            'tailors',                      // teamId
+            `${name}@mail.com`,        // fake email
+            [],                             // roles (optional)
+            'https://fake.com',             // fake URL
+            id                          // 👈 REQUIRED to skip email confirmation
+          );
+      } catch (error) {
+         console.log(error)
+      }
 
    } catch (err) {
       console.error('❌ Error somewhere in the flow:', err);
